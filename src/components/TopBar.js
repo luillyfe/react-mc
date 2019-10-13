@@ -30,7 +30,10 @@ export default class TopBar extends Component {
         <div>{"Modus Create"}</div>
         <div style={{ float: "left", color: "white", flex: 1 }} />
         <div style={{ float: "right", paddingRight: 20 }}>
-          <Login style={{ backgroundColor: "blue", color: "white" }} />
+          <Login
+            style={{ backgroundColor: "blue", color: "white" }}
+            showName={true}
+          />
           <Button style={{ backgroundColor: "red", color: "white" }}>
             Signup
           </Button>
