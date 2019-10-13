@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
-import security from "../security/security.reducer"
+import security from "../security/security.reducer";
+import users from "../components/UserList/user.reducer";
 
 const reducer = combineReducers({
-    security
+  security,
+  users
 });
 
 export default reducer;
