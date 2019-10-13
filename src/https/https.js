@@ -23,24 +23,16 @@ const https = {
       resolve({ data: { message: "token was invalid" } });
     });
   },
-  getUsers: (url, config) => {
+  getUsers: async (url, config) => {
     console.log("A request for users was made, ", url, config);
 
-    return new Promise(resolve => {
-      resolve({
-        data: [
-          {
-            name: {
-              title: "mr",
-              first: "brad",
-              last: "gibson"
-            },
-            email: "brad.gibson@example.com",
-            phone: 1234567890
-          }
-        ]
-      });
+    const res = await fetch(
+      "https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb?fmt=raw&sole"
+    ).then(res => {
+      return res.json();
     });
+
+    return { data: res };
   }
 };
 
