@@ -1,9 +1,9 @@
 import querystring from "querystring";
 
-import * as constants from "security.constants";
+import * as constants from "./security.constants";
 import { https } from "../https/https";
 
-const logIn = (username, password) => dispatch => {
+const logIn = ({ username, password }) => dispatch => {
   const url = "https://server.com/connect/token";
   const params = { username, password };
   const config = {
@@ -24,3 +24,5 @@ const logIn = (username, password) => dispatch => {
       dispatch({ type: constants.LOG_IN.FAILED });
     });
 };
+
+export { logIn };

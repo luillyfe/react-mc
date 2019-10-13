@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import Button from './Button';
+import React, { Component } from "react";
+import Login from "./Login";
+
 export default class HomeContent extends Component {
   render() {
     return (
       <div>
-        <Button>Login</Button>
+        <Login />
       </div>
     );
   }

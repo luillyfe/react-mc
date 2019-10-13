@@ -1,4 +1,4 @@
-import * as constants from "security.constants";
+import * as constants from "./security.constants";
 
 const initialState = null;
 
