@@ -19,4 +19,16 @@ const saveStateToLocalStorage = state => {
   }
 };
 
-export { loadStateFromLocalStorage, saveStateToLocalStorage };
+const removeStateFromLocalStorage = state => {
+  try {
+    localStorage.removeItem("state");
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export {
+  loadStateFromLocalStorage,
+  saveStateToLocalStorage,
+  removeStateFromLocalStorage
+};

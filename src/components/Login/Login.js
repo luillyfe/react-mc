@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button";
 
-const Login = ({ user, logIn, showName, ...props }) => {
+const Login = ({ user, logIn, logOut, showName, ...props }) => {
   const [name, setName] = useState(null);
   const signIn = event => {
     event.stopPropagation();
@@ -10,7 +10,7 @@ const Login = ({ user, logIn, showName, ...props }) => {
 
   const signOut = event => {
     event.stopPropagation();
-    // logOut();
+    logOut();
   };
 
   const formatName = user => {
@@ -27,7 +27,12 @@ const Login = ({ user, logIn, showName, ...props }) => {
   }, [user, formatName]);
 
   return user ? (
-    <Button handleClick={signOut}>{showName ? name : "logOut"}</Button>
+    <Button
+      style={showName ? { width: "unset", borderRadius: "50%" } : props.style}
+      handleClick={signOut}
+    >
+      {showName ? name : "logOut"}
+    </Button>
   ) : (
     <Button {...props} handleClick={signIn}>
       Login

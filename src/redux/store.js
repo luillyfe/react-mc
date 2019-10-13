@@ -3,7 +3,7 @@ import immutableInvariant from "redux-immutable-state-invariant";
 import thunk from "redux-thunk";
 
 import reducer from "./reducer";
-import { throttle } from "./utils.js"
+import throttle from "lodash.throttle";
 import {
   loadStateFromLocalStorage,
   saveStateToLocalStorage
@@ -21,7 +21,7 @@ const store = createStore(reducer, loadStateFromLocalStorage(), enhancer);
 store.subscribe(
   throttle(() => {
     saveStateToLocalStorage(store.getState());
-  })
+  }, 5000)
 );
 
-export default store
+export default store;

@@ -8,6 +8,10 @@ const reducer = (state = initialState, action) => {
       return { ...action.payload };
     }
 
+    case constants.LOG_OUT.SUCCESS: {
+      return initialState;
+    }
+
     default: {
       return state;
     }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from "./Button";
 import Login from "./Login";
+import SingUp from "./SingUp";
 
 export default class TopBar extends Component {
   render() {
@@ -34,9 +34,7 @@ export default class TopBar extends Component {
             style={{ backgroundColor: "blue", color: "white" }}
             showName={true}
           />
-          <Button style={{ backgroundColor: "red", color: "white" }}>
-            Signup
-          </Button>
+          <SingUp />
         </div>
       </header>
     );
