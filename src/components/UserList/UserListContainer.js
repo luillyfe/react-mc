@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 
+import UserList from "./UserList";
+
 import { getUsers } from "./user.selectors";
 import { requestUsers } from "./user.actions";
 
@@ -8,7 +10,7 @@ const mapDispatchToProps = {
   getUsers: requestUsers
 };
 
-connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(UserList);
