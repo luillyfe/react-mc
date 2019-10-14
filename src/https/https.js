@@ -22,6 +22,24 @@ const https = {
     return new Promise(resolve => {
       resolve({ data: { message: "token was invalid" } });
     });
+  },
+  getUsers: async (url, config) => {
+    console.log("A request for users was made, ", url, config);
+
+    const { results } = await fetch(
+      "https://randomuser.me/api/?results=20&seed=md175&inc=name,location,email,phone,id,picture,dob"
+    ).then(res => {
+      return res.json();
+    });
+
+    return { data: results };
+  },
+  getUser: (url, config) => {
+    console.log("A request for user was made, ", url, config);
+
+    return new Promise(resolve => {
+      resolve({ data: { id: url } });
+    });
   }
 };
 
