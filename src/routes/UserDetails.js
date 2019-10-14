@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
 import TopBar from "../components/TopBar";
-import UserList from "../components/UserList";
+import UserDetail from "../components/UserDetail";
 
-export default class Users extends Component {
+export default class User extends Component {
   render() {
     return (
       <div className="App">
         <TopBar />
-        <UserList />
+        <UserDetail />
       </div>
     );
   }

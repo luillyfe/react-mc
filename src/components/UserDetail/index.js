@@ -1,3 +1,3 @@
-import UserDetail from "./UserDetail";
+import UserDetail from "./UserDetailsContainer";
 
 export default UserDetail;

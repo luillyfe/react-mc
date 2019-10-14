@@ -1,13 +1,17 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-const UserDetail = ({ user, history }) => {
+const UserDetail = ({ user, getUser, history, match }) => {
   const handleClick = event => {
     event.stopPropagation();
     history.push(`/user/${user.id.value}`);
   };
 
-  return (
+  if (match.params.id) {
+    getUser(match.params.id);
+  }
+
+  return user ? (
     <div className="card" onClick={handleClick}>
       <div className="card-image">
         <img
@@ -27,6 +31,8 @@ const UserDetail = ({ user, history }) => {
         <a href="#">{new Date(user.dob.date).toString()}</a>
       </div>
     </div>
+  ) : (
+    <div> this user has no id, the is failing </div>
   );
 };
 

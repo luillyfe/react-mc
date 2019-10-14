@@ -33,6 +33,13 @@ const https = {
     });
 
     return { data: results };
+  },
+  getUser: (url, config) => {
+    console.log("A request for user was made, ", url, config);
+
+    return new Promise(resolve => {
+      resolve({ data: { id: url } });
+    });
   }
 };
 

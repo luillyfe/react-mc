@@ -8,6 +8,10 @@ const reducer = (state = initialState, action) => {
       return { users: [...action.payload] };
     }
 
+    case constants.GET_USER.SUCCESS: {
+      return { ...state, ...action.payload };
+    }
+
     default:
       return state;
   }

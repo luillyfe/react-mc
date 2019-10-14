@@ -21,4 +21,28 @@ const requestUsers = () => (dispatch, getState) => {
     });
 };
 
-export { requestUsers };
+const requestUser = id => (dispatch, getState) => {
+  const { token } = getState().security;
+  const { users } = getState().user;
+  const url = id;
+  const config = {
+    headers: { token }
+  };
+
+  dispatch({ type: constants.GET_USER.REQUESTED });
+  https
+    .getUser(url, config)
+    .then(res => {
+      const user = users.filter(u => u.id.value == res.data.id)[0];
+      dispatch({
+        type: constants.GET_USER.SUCCESS,
+        payload: { current: user }
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: constants.GET_USER.FAILED });
+    });
+};
+
+export { requestUsers, requestUser };
