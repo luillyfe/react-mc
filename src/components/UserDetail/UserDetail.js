@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import Button from "../Button";
 
-const UserDetail = ({ user, getUser, history, match }) => {
+const UserDetail = ({ user, getUser, history, match, showBackButton }) => {
   const handleClick = event => {
     event.stopPropagation();
     history.push(`/user/${user.id.value}`);
   };
 
-  if (match.params.id) {
+  const goBack = event => {
+    event.stopPropagation();
+    history.push("/users");
+  };
+
+  useEffect(() => {
     getUser(match.params.id);
-  }
+  }, [getUser, match.params.id]);
 
   return user ? (
-    <div className="card" onClick={handleClick}>
+    <div className="card" onClick={handleClick} style={{ maxWidth: "15rem" }}>
       <div className="card-image">
         <img
           src={user.picture.large}
@@ -28,7 +34,11 @@ const UserDetail = ({ user, getUser, history, match }) => {
         </p>
       </div>
       <div className="card-action">
-        <a href="#">{new Date(user.dob.date).toString()}</a>
+        {showBackButton ? (
+          <Button handleClick={goBack}>Go back</Button>
+        ) : (
+          <a href="#">{new Date(user.dob.date).toString()}</a>
+        )}
       </div>
     </div>
   ) : (

@@ -17,7 +17,7 @@ ReactDOM.render(
         <Route exact path="/" component={Landing} />
         <Route path="/home" component={Home} />
         <Route path="/users" component={Users} />
-        <Route path="/user/:id" component={UserDetails} />
+        <Route exact path="/user/:id" component={UserDetails} />
       </div>
     </BrowserRouter>
   </Provider>,

@@ -8,7 +8,7 @@ export default class User extends Component {
     return (
       <div className="App">
         <TopBar />
-        <UserDetail />
+        <UserDetail showBackButton={true} />
       </div>
     );
   }
