@@ -3,7 +3,8 @@ import * as constants from "./user.contants";
 import { https } from "../../https/https";
 
 const requestUsers = () => (dispatch, getState) => {
-  const { token } = getState().security;
+  const state = getState();
+  const token = state.security && state.security.token;
   const url = "someurl";
   const config = {
     headers: { token }
@@ -22,8 +23,9 @@ const requestUsers = () => (dispatch, getState) => {
 };
 
 const requestUser = id => (dispatch, getState) => {
-  const { token } = getState().security;
-  const { users } = getState().user;
+  const state = getState();
+  const token = state.security && state.security.token;
+  const users = state.user && state.user.users;
   const url = id;
   const config = {
     headers: { token }
