@@ -27,7 +27,8 @@ export default class TopBar extends Component {
             />
           </Link>
         </div>
-        <div>{"Modus Create"}</div>
+        <Link to="/home">{"Modus Create"}</Link>
+        <Link to="/users">Users</Link>
         <div style={{ float: "left", color: "white", flex: 1 }} />
         <div style={{ float: "right", paddingRight: 20 }}>
           <Login
