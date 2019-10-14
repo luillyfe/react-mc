@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import User from "../UserDetail";
+import UserDetail from "../UserDetail";
 
 const UserList = ({ users, getUsers }) => {
   useEffect(() => {
@@ -15,13 +15,13 @@ const UserList = ({ users, getUsers }) => {
       }}
     >
       {users &&
-        users.map(user => {
+        users.map((user, index) => {
           return (
             <div
               style={{ display: "flex", maxWidth: "12.5rem", margin: "1rem" }}
-              key={`${user.name}-${user.last}-${user.address}`}
+              key={user.id.value ? user.id.value : `${user.name}-${index}`}
             >
-              <User user={user} />
+              <UserDetail user={user} />
             </div>
           );
         })}

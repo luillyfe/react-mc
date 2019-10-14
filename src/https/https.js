@@ -26,13 +26,13 @@ const https = {
   getUsers: async (url, config) => {
     console.log("A request for users was made, ", url, config);
 
-    const res = await fetch(
-      "https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb?fmt=raw&sole"
+    const { results } = await fetch(
+      "https://randomuser.me/api/?results=20&seed=md175&inc=name,location,email,phone,id,picture,dob"
     ).then(res => {
       return res.json();
     });
 
-    return { data: res };
+    return { data: results };
   }
 };
 
